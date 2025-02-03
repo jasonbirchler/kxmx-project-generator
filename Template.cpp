@@ -7,6 +7,8 @@ using namespace daisysp;
 
 Bluemchen bluemchen;
 
+int enc_val = 0;
+
 Parameter knob1;
 Parameter knob2;
 Parameter cv1;
@@ -33,6 +35,8 @@ void UpdateControls()
 
     cv1.Process();
     cv2.Process();
+
+    enc_val += bluemchen.encoder.Increment();
 }
 
 void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, size_t size)
@@ -49,10 +53,7 @@ void AudioCallback(AudioHandle::InputBuffer in, AudioHandle::OutputBuffer out, s
 
 int main(void)
 {
-    float sample_rate;
     bluemchen.Init();
-    bluemchen.SetAudioBlockSize(4);
-    sample_rate = bluemchen.AudioSampleRate();
     bluemchen.StartAdc();
 
     knob1.Init(bluemchen.controls[bluemchen.CTRL_1], 0.001f, 0.1f, Parameter::LINEAR);
