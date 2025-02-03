@@ -60,6 +60,7 @@ echo "C_INCLUDES += -I\$(BLUEMCHEN_DIR)/src" >> Makefile
 echo "Makefile generated"
 
 cp -r ~/workspace/kxmx-project-generator/.vscode "$PROJECT_PATH"
+cp -r ~/workspace/kxmx-project-generator/gitignore_template.txt "$PROJECT_PATH/.gitignore"
 
 echo "VSCode tasks created"
 

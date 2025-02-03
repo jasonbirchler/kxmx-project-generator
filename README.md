@@ -18,7 +18,18 @@ For example,
 Enter the directory/project name: MyCoolNewProject
 ```
 
-will result in the following project structure:
+does the following:
+
+- create project directory
+- init git repo in project directory
+- add and init git submodules recursively so that they are all ready to build
+- create a new C++ file for the project
+- generate a Makefile
+- add basic .gitignore
+- add VSCode tasks
+- commit everything to your local git repository
+
+and results in the following project structure:
 
 ``` shell
 .vscode
@@ -38,8 +49,6 @@ kxmx_bluemchen
 Makefile
 MyCoolNewProject.cpp
 ```
-
-Basic build tasks should be defined for use in VSCode. i.e. build, build_all, build_and_program, build_andprogram_dfu
 
 ## Current limitations
 
